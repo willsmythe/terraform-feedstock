@@ -1,5 +1,5 @@
 {% set name = "terraform" %}
-{% set version = "0.10.0" %}
+{% set version = "0.10.2" %}
 {% set build_number = 0 %}
 
 package:
@@ -13,11 +13,11 @@ source:
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_386.zip  # [win32]
   fn: {{ name }}-{{ version }}.zip
-  sha256: 1584dc21ad5ac1dc0d9a2876542a85d092778d00a0622622c28f8740abadddb9  # [osx]
-  sha256: 97cca04d14136480604e73f7cb2efa409d27ca6651291c67bc3e8c1a2ae499d0  # [linux32]
-  sha256: f991039e3822f10d6e05eabf77c9f31f3831149b52ed030775b6ec5195380999  # [linux64]
-  sha256: a118202c72a8404d406e8250e2163dcf218dd31fe16f846ac3996854fa3c7613  # [win32]
-  sha256: d9697b0153bed48af4b077c711197f8fca1163e94d5a1c067b077a02201be25f  # [win64]
+  sha256: 1ad6bad0349a3bcda8264746a3db0a39875c2cd93e3418393cc082bbb4812541  # [osx]
+  sha256: c920c8eb52ce800e7271fc30166759488f6e22406eb48346937f19904b581465  # [linux32]
+  sha256: 6c1b5ce1a78bc7bb895055052d9074e519f51293770871acfe2dbd289e2f2aaa  # [linux64]
+  sha256: e8459cf9c9b4ec1e732ea02648b619e8ba127396bf72c999af4f22c02abc2dd4  # [win32]
+  sha256: b117dfde4c64c626a0551b88eda94c0d08015ff221935c0c82855203d7378c99  # [win64]
 
 build:
   number: {{ build_number }}
