@@ -2,19 +2,19 @@
 {% set version = "0.11.3" %}
 {% set build_number = 0 %}
 {% set sha256_osx = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                    regex_pattern="(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_darwin_amd64.zip",
+                                    regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_darwin_amd64.zip$",
                                     from_recipe_dir=True)["sha256"] %}
 {% set sha256_linux32 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                        regex_pattern="(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_linux_386.zip",
+                                        regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_linux_386.zip$",
                                         from_recipe_dir=True)["sha256"] %}
 {% set sha256_linux64 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                        regex_pattern="(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_linux_amd64.zip",
+                                        regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_linux_amd64.zip$",
                                         from_recipe_dir=True)["sha256"] %}
 {% set sha256_win32 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                      regex_pattern="(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_windows_386.zip",
+                                      regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_windows_386.zip$",
                                       from_recipe_dir=True)["sha256"] %}
 {% set sha256_win64 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                      regex_pattern="(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_windows_amd64.zip",
+                                      regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_windows_amd64.zip$",
                                       from_recipe_dir=True)["sha256"] %}
 
 package:
