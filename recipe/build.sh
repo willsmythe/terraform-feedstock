@@ -1,17 +1,29 @@
 #!/usr/bin/env bash
 
-# Create temporary GOPATH
-mkdir build
-export GOPATH=$(pwd)/build
-mkdir -p $GOPATH/src/github.com/terraform-providers
+# Turn the work-folder into GOPATH
+pkg_dir=$(pwd)
+export GOPATH=$(readlink -f $(pwd)/..)
+export GOSRC_PREFIX=$GOPATH/src/github.com/hashicorp
+export PATH=$GOPATH/bin:$PATH
+mkdir -p $GOSRC_PREFIX
 
-# Link code to GOPATH directory
-ln -s $(pwd) $GOPATH/src/github.com/terraform-providers/$PKG_NAME
+cd $GOPATH
+mv $pkg_dir $GOSRC_PREFIX/$PKG_NAME
+ln -s $GOSRC_PREFIX/$PKG_NAME $pkg_dir
+cd $GOSRC_PREFIX/$PKG_NAME
+
+# Git Initialize
+# Apps tend to use git info to create version string
+git init
+git add conda_build.sh
+git commit -m "conda build of $PKG_NAME-v$PKG_VERSION"
+git tag v${PKG_VERSION}
 
 # Build
-cd $GOPATH/src/github.com/terraform-providers/$PKG_NAME
-make build
-make test
+make
+
+# This is a misnomer, it will still build the distro
+make dev
 
 # Install Binary into PREFIX/bin
-mv $GOPATH/bin/$PKG_NAME $PREFIX/bin/${PKG_NAME}_v${PKG_VERSION}_x4
+mv $GOPATH/bin/$PKG_NAME $PREFIX/bin/${PKG_NAME}

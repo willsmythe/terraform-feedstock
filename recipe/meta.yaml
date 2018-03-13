@@ -17,7 +17,7 @@ source:
 
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_386.zip  # [win32]
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
-  fn: {{ name }}-{{ version }}.zip
+  fn: {{ name }}-{{ version }}.zip  # [win]
   sha256: {{ sha256_win32 }}  # [win32]
   sha256: {{ sha256_win64 }}  # [win64]
 
@@ -27,6 +27,7 @@ build:
 requirements:
   build:
     - go 1.9.*  # [not win]
+    - git  # [not win]
     - make  # [not win]
     - toolchain  # [not win]
 
