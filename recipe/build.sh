@@ -2,12 +2,12 @@
 
 # Turn the work-folder into GOPATH
 pkg_dir=$(pwd)
-export GOPATH=$(readlink -f $(pwd)/..)
+cd ..
+export GOPATH=$(pwd)
 export GOSRC_PREFIX=$GOPATH/src/github.com/hashicorp
 export PATH=$GOPATH/bin:$PATH
 mkdir -p $GOSRC_PREFIX
 
-cd $GOPATH
 mv $pkg_dir $GOSRC_PREFIX/$PKG_NAME
 ln -s $GOSRC_PREFIX/$PKG_NAME $pkg_dir
 cd $GOSRC_PREFIX/$PKG_NAME
