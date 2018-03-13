@@ -14,6 +14,8 @@ cd $GOSRC_PREFIX/$PKG_NAME
 
 # Git Initialize
 # Apps tend to use git info to create version string
+git config --global user.email "conda@conda-forge.github.io"
+git config --global user.name "conda-forge"
 git init
 git add conda_build.sh
 git commit -m "conda build of $PKG_NAME-v$PKG_VERSION"
