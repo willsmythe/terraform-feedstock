@@ -2,9 +2,9 @@
 {% set version = "0.11.3" %}
 {% set build_number = 0 %}
 
-{% set sha256 = "x" %}
-{% set sha256_win32 = "" %}
-{% set sha256_win64 = "" %}
+{% set sha256 = "5c4ac2fef753eeb0d09a6c2772b81720719c698287d46a625cb5050815dbd63b" %}
+{% set sha256_win32 = "fec2aafec4fc942530e5c5bef5d3f634133dd3d88aab79d29940725c7faa6bb4" %}
+{% set sha256_win64 = "b4ff550aee6288ffd0911380a927cf216678121c3d30feb22aaf84446c3595bb" %}
 
 package:
   name: {{ name|lower }}
