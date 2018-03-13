@@ -1,45 +1,38 @@
 {% set name = "terraform" %}
 {% set version = "0.11.3" %}
 {% set build_number = 0 %}
-{% set sha256_osx = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                    regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_darwin_amd64.zip$",
-                                    from_recipe_dir=True)["sha256"] %}
-{% set sha256_linux32 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                        regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_linux_386.zip$",
-                                        from_recipe_dir=True)["sha256"] %}
-{% set sha256_linux64 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                        regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_linux_amd64.zip$",
-                                        from_recipe_dir=True)["sha256"] %}
-{% set sha256_win32 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                      regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_windows_386.zip$",
-                                      from_recipe_dir=True)["sha256"] %}
-{% set sha256_win64 = load_file_regex(load_file=name + "_" + version + "_SHA256SUMS",
-                                      regex_pattern="(?m)^(?P<sha256>[0-9a-f]+)\\s+"+ name + "_" + version + "_windows_amd64.zip$",
-                                      from_recipe_dir=True)["sha256"] %}
+
+{% set sha256 = "x" %}
+{% set sha256_win32 = "" %}
+{% set sha256_win64 = "" %}
 
 package:
-  name: {{ name }}
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_linux_amd64.zip  # [linux64]
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_linux_386.zip  # [linux32]
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_darwin_amd64.zip  # [osx]
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
+  url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
+  fn: {{ name }}-{{ version }}.tar.gz  # [not win]
+  sha256: {{ sha256 }}  # [not win]
+
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_386.zip  # [win32]
+  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
   fn: {{ name }}-{{ version }}.zip
-  sha256: {{ sha256_osx }} # [osx]
-  sha256: {{ sha256_linux32 }} # [linux32]
-  sha256: {{ sha256_linux64 }} # [linux64]
-  sha256: {{ sha256_win32 }} # [win32]
-  sha256: {{ sha256_win64 }} # [win64]
+  sha256: {{ sha256_win32 }}  # [win32]
+  sha256: {{ sha256_win64 }}  # [win64]
 
 build:
   number: {{ build_number }}
 
+requirements:
+  build:
+    - go 1.9.*  # [not win]
+    - make  # [not win]
+    - toolchain  # [not win]
+
 test:
   commands:
-    - {{ name }} -v
+    - {{ name|lower }} -v
 
 about:
   home: https://www.terraform.io
