@@ -2,29 +2,38 @@
 {% set version = "0.11.3" %}
 {% set build_number = 0 %}
 
+{% set sha256 = "5c4ac2fef753eeb0d09a6c2772b81720719c698287d46a625cb5050815dbd63b" %}
+{% set sha256_win32 = "fec2aafec4fc942530e5c5bef5d3f634133dd3d88aab79d29940725c7faa6bb4" %}
+{% set sha256_win64 = "b4ff550aee6288ffd0911380a927cf216678121c3d30feb22aaf84446c3595bb" %}
+
 package:
-  name: {{ name }}
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_linux_amd64.zip  # [linux64]
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_linux_386.zip  # [linux32]
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_darwin_amd64.zip  # [osx]
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
+  url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
+  fn: {{ name }}-{{ version }}.tar.gz  # [not win]
+  sha256: {{ sha256 }}  # [not win]
+
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_386.zip  # [win32]
-  fn: {{ name }}-{{ version }}.zip
-  sha256: 183078bf230e517e6f41e47d6e7d3b61093c6bb5a2b85958c01a4cf3949b7c14  # [osx]
-  sha256: bcf425cc3833edc1e4eac817d4d32cdef252b479fd9a9e5a78325c05fe7e0d80  # [linux32]
-  sha256: 6b8a7b83954597d36bbed23913dd51bc253906c612a070a21db373eab71b277b  # [linux64]
-  sha256: fec2aafec4fc942530e5c5bef5d3f634133dd3d88aab79d29940725c7faa6bb4  # [win32]
-  sha256: b4ff550aee6288ffd0911380a927cf216678121c3d30feb22aaf84446c3595bb  # [win64]
+  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
+  fn: {{ name }}-{{ version }}.zip  # [win]
+  sha256: {{ sha256_win32 }}  # [win32]
+  sha256: {{ sha256_win64 }}  # [win64]
 
 build:
   number: {{ build_number }}
 
+requirements:
+  build:
+    - go 1.9.*  # [not win]
+    - git  # [not win]
+    - make  # [not win]
+    - toolchain  # [not win]
+
 test:
   commands:
-    - {{ name }} -v
+    - {{ name|lower }} -v
 
 about:
   home: https://www.terraform.io
