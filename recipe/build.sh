@@ -22,6 +22,7 @@ git commit -m "conda build of $PKG_NAME-v$PKG_VERSION"
 git tag v${PKG_VERSION}
 
 # Build
+make fmt
 make
 
 # This is a misnomer, it will still build the distro
