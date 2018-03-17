@@ -1,10 +1,9 @@
 {% set name = "terraform" %}
-{% set version = "0.11.3" %}
-{% set build_number = 0 %}
+{% set version = "0.11.4" %}
 
-{% set sha256 = "5c4ac2fef753eeb0d09a6c2772b81720719c698287d46a625cb5050815dbd63b" %}
-{% set sha256_win32 = "fec2aafec4fc942530e5c5bef5d3f634133dd3d88aab79d29940725c7faa6bb4" %}
-{% set sha256_win64 = "b4ff550aee6288ffd0911380a927cf216678121c3d30feb22aaf84446c3595bb" %}
+{% set sha256 = "64bd59212e0fed24cacbc9c9b5cbfb0bb5e035e9f19e75d308f8738b662f08bc" %}
+{% set sha256_win32 = "8b82283e5cbad072b0f1436041a662ab5a9bca83845cd246a9a9081b542a299f" %}
+{% set sha256_win64 = "a762b329798b872f44df3b5db33122469a3cf1ad28c1915fee17605ec8245508" %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +21,7 @@ source:
   sha256: {{ sha256_win64 }}  # [win64]
 
 build:
-  number: {{ build_number }}
+  number: 0
 
 requirements:
   build:
