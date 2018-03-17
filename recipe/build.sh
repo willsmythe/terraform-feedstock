@@ -23,7 +23,6 @@ git tag v${PKG_VERSION}
 
 # Build
 make fmt
-make
 
 # This is a misnomer, it will still build the distro
 make dev
