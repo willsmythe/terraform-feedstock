@@ -1,10 +1,6 @@
 {% set name = "terraform" %}
 {% set version = "0.11.8" %}
 
-{% set sha256 = "b14dbb9b9b100ddcd516ad426f31a23016ce351d7481407bc91bceb342307826" %}
-{% set sha256_win32 = "4e4b50de1143d72d348e6300d78aed596acae09714516d697bd4f0d9443aa7d3" %}
-{% set sha256_win64 = "5fd003ef20f7a6a85ced4ad30bf95698afd4d0bfd477541583ff014e96026d6c" %}
-
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -12,13 +8,11 @@ package:
 source:
   url: https://github.com/hashicorp/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
   fn: {{ name }}-{{ version }}.tar.gz  # [not win]
-  sha256: {{ sha256 }}  # [not win]
+  sha256: c0d7a0b726579574bcfee2ae141be4e82d1c9ab4a339cc6f86f9ec38de9130fb  # [not win]
 
-  url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_386.zip  # [win32]
   url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
   fn: {{ name }}-{{ version }}.zip  # [win]
-  sha256: {{ sha256_win32 }}  # [win32]
-  sha256: {{ sha256_win64 }}  # [win64]
+  sha256: b14dbb9b9b100ddcd516ad426f31a23016ce351d7481407bc91bceb342307826  # [win64]
 
 build:
   number: 0
