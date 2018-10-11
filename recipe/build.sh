@@ -28,4 +28,5 @@ make fmt
 make dev
 
 # Install Binary into PREFIX/bin
+mkdir -p $PREFIX/bin
 mv $GOPATH/bin/$PKG_NAME $PREFIX/bin/${PKG_NAME}
