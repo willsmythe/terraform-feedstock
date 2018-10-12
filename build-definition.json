@@ -1,0 +1,104 @@
+{
+  "triggers": [
+    {
+      "branchFilters": [],
+      "pathFilters": [],
+      "settingsSourceType": 2,
+      "batchChanges": false,
+      "maxConcurrentBuildsPerBranch": 1,
+      "triggerType": 2
+    },
+    {
+      "branchFilters": [
+        "+master"
+      ],
+      "forks": {
+        "enabled": true,
+        "allowSecrets": false
+      },
+      "pathFilters": [],
+      "isCommentRequiredForPullRequest": false,
+      "triggerType": 64
+    }
+  ],
+  "properties": {},
+  "tags": [],
+  "_links": {
+    "self": {
+      "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/Definitions/38?revision=1"
+    },
+    "web": {
+      "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_build/definition?definitionId=38"
+    },
+    "editor": {
+      "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_build/designer?id=38&_a=edit-build-definition"
+    },
+    "badge": {
+      "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/status/38"
+    }
+  },
+  "jobAuthorizationScope": 1,
+  "process": {
+    "yamlFilename": "azure-pipelines.yml",
+    "type": 2
+  },
+  "repository": {
+    "properties": {
+      "connectedServiceId": "0c0264f5-c6de-48e8-8df9-7e2e0ecafc03",
+      "apiUrl": "https://api.github.com/repos/willsmythe/terraform-feedstock"
+    },
+    "id": "willsmythe/terraform-feedstock",
+    "type": "GitHub",
+    "name": "willsmythe/terraform-feedstock",
+    "url": "https://github.com/willsmythe/terraform-feedstock.git",
+    "clean": null,
+    "checkoutSubmodules": false
+  },
+  "quality": 1,
+  "authoredBy": {
+    "displayName": "Will Smythe",
+    "url": "https://app.vssps.visualstudio.com/A904cdd1c-e5b5-4fdf-8373-71376df35088/_apis/Identities/cd49a245-51cc-493a-ab1a-5c0feb5afaa3",
+    "_links": {
+      "avatar": {
+        "href": "https://dev.azure.com/vsalmopen/_apis/GraphProfile/MemberAvatars/aad.MTFmNjcyMGItZTYwZC03MTM1LTgyM2ItMTU4MDcxZWViYmQ3"
+      }
+    },
+    "id": "cd49a245-51cc-493a-ab1a-5c0feb5afaa3",
+    "uniqueName": "wismythe@microsoft.com",
+    "imageUrl": "https://dev.azure.com/vsalmopen/_api/_common/identityImage?id=cd49a245-51cc-493a-ab1a-5c0feb5afaa3",
+    "descriptor": "aad.MTFmNjcyMGItZTYwZC03MTM1LTgyM2ItMTU4MDcxZWViYmQ3"
+  },
+  "drafts": [],
+  "queue": {
+    "_links": {
+      "self": {
+        "href": "https://dev.azure.com/vsalmopen/_apis/build/Queues/438"
+      }
+    },
+    "id": 438,
+    "name": "Hosted Ubuntu 1604",
+    "url": "https://dev.azure.com/vsalmopen/_apis/build/Queues/438",
+    "pool": {
+      "id": 7,
+      "name": "Hosted Ubuntu 1604",
+      "isHosted": true
+    }
+  },
+  "id": 38,
+  "name": "terraform-feedstock v6",
+  "url": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/Definitions/38?revision=1",
+  "uri": "vstfs:///Build/Definition/38",
+  "path": "\\",
+  "type": 2,
+  "queueStatus": 0,
+  "revision": 1,
+  "createdDate": "2018-10-11T22:59:35.533Z",
+  "project": {
+    "id": "9b43b343-8fc7-4a88-bc44-48bde1ca952a",
+    "name": "feedstock-builds",
+    "url": "https://dev.azure.com/vsalmopen/_apis/projects/9b43b343-8fc7-4a88-bc44-48bde1ca952a",
+    "state": "wellFormed",
+    "revision": 411518932,
+    "visibility": 0
+  }
+}
