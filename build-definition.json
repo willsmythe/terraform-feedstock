@@ -1,4 +1,34 @@
 {
+  "options": [
+    {
+      "enabled": false,
+      "definition": {
+        "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+      },
+      "inputs": {
+        "branchFilters": "[\"+refs/heads/*\"]",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": {
+        "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+      },
+      "inputs": {
+        "workItemType": "Bug",
+        "assignToRequestor": "true",
+        "additionalFields": "{}"
+      }
+    },
+    {
+      "enabled": false,
+      "definition": {
+        "id": "57578776-4c22-4526-aeb0-86b6da17ee9c"
+      },
+      "inputs": {}
+    }
+  ],
   "triggers": [
     {
       "branchFilters": [],
@@ -25,7 +55,7 @@
   "tags": [],
   "_links": {
     "self": {
-      "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/Definitions/38?revision=1"
+      "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/Definitions/38?revision=2"
     },
     "web": {
       "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_build/definition?definitionId=38"
@@ -37,21 +67,45 @@
       "href": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/status/38"
     }
   },
+  "comment": "Just opened, didn't actually change anything",
   "jobAuthorizationScope": 1,
+  "jobCancelTimeoutInMinutes": 5,
   "process": {
     "yamlFilename": "azure-pipelines.yml",
     "type": 2
   },
   "repository": {
     "properties": {
+      "apiUrl": "https://api.github.com/repos/willsmythe/terraform-feedstock",
+      "branchesUrl": "https://api.github.com/repos/willsmythe/terraform-feedstock/branches",
+      "cloneUrl": "https://github.com/willsmythe/terraform-feedstock.git",
+      "fullName": "willsmythe/terraform-feedstock",
+      "manageUrl": "https://github.com/willsmythe/terraform-feedstock",
+      "refsUrl": "https://api.github.com/repos/willsmythe/terraform-feedstock/git/refs",
+      "defaultBranch": "master",
       "connectedServiceId": "0c0264f5-c6de-48e8-8df9-7e2e0ecafc03",
-      "apiUrl": "https://api.github.com/repos/willsmythe/terraform-feedstock"
+      "isPrivate": "False",
+      "isFork": "True",
+      "ownerAvatarUrl": "https://avatars2.githubusercontent.com/u/2503052?v=4",
+      "lastUpdated": "10/11/2018 21:45:37",
+      "safeOwnerId": "B2851DCAC560A5E6E8D49F80E839C3DC26DB31C6628E7EABB0EB004F1942101BD36FEF7DEAA283A9B8F1B1C1BFEA26D1D59E00478FDDF30393980D443552",
+      "safeRepository": "terraform-feedstock",
+      "ownerIsAUser": "True",
+      "checkoutNestedSubmodules": "false",
+      "cleanOptions": "0",
+      "fetchDepth": "0",
+      "gitLfsSupport": "false",
+      "reportBuildStatus": "false",
+      "skipSyncSource": "false",
+      "labelSourcesFormat": "$(build.buildNumber)",
+      "labelSources": "0"
     },
     "id": "willsmythe/terraform-feedstock",
     "type": "GitHub",
     "name": "willsmythe/terraform-feedstock",
     "url": "https://github.com/willsmythe/terraform-feedstock.git",
-    "clean": null,
+    "defaultBranch": "master",
+    "clean": "false",
     "checkoutSubmodules": false
   },
   "quality": 1,
@@ -86,13 +140,13 @@
   },
   "id": 38,
   "name": "terraform-feedstock v6",
-  "url": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/Definitions/38?revision=1",
+  "url": "https://dev.azure.com/vsalmopen/9b43b343-8fc7-4a88-bc44-48bde1ca952a/_apis/build/Definitions/38?revision=2",
   "uri": "vstfs:///Build/Definition/38",
   "path": "\\",
   "type": 2,
   "queueStatus": 0,
-  "revision": 1,
-  "createdDate": "2018-10-11T22:59:35.533Z",
+  "revision": 2,
+  "createdDate": "2018-10-11T23:00:46.910Z",
   "project": {
     "id": "9b43b343-8fc7-4a88-bc44-48bde1ca952a",
     "name": "feedstock-builds",
